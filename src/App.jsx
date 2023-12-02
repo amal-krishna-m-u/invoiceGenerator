@@ -4,6 +4,7 @@ import AddCategory from "./AddCategory";
 import AddProduct from "./AddProduct";
 import GenerateBill from "./GenerateBill";
 import ManageItems from "./ManageItems";
+import DeleteItem from "./DeleteItem"; // Import the DeleteItem component
 import "./style.css";
 
 const App = () => {
@@ -47,8 +48,21 @@ const App = () => {
   };
 
   const handleDeleteItem = (itemToDelete) => {
-    const updatedItems = billItems.filter((item) => item !== itemToDelete);
-    saveBillItemsToLocalStorage(updatedItems);
+    // Implement your logic to delete a bill item
+    console.log("Deleting bill item:", itemToDelete);
+    // Update the state accordingly
+    setBillItems((prevItems) =>
+      prevItems.filter((item) => item !== itemToDelete)
+    );
+  };
+
+  const handleDeleteCategory = (categoryToDelete) => {
+    // Implement your logic to delete a category
+    console.log("Deleting category:", categoryToDelete);
+    // Update the state accordingly
+    setCategories((prevCategories) =>
+      prevCategories.filter((category) => category !== categoryToDelete)
+    );
   };
 
   return (
@@ -65,6 +79,12 @@ const App = () => {
         onGenerateBill={handleGenerateBill}
       />
       <ManageItems items={billItems} onDeleteItem={handleDeleteItem} />
+      <DeleteItem
+        items={billItems}
+        categories={categories}
+        onDeleteItem={handleDeleteItem}
+        onDeleteCategory={handleDeleteCategory}
+      />
     </div>
   );
 };

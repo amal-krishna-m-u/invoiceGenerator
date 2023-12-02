@@ -1,14 +1,27 @@
 // ManageItems.jsx
 import React from "react";
 
-const ManageItems = ({ items, onDeleteItem }) => {
-  function handelPrint(){
-window.print()
 
-  }
-  
-  
-  
+
+
+const ManageItems = ({ items, onDeleteItem }) => {
+//   function handelPrint(){
+// window.print();
+//   };
+
+
+function printdiv(elem) {
+  var header_str = '<html><head><title>' + document.title  + '</title></head><body>';
+  var footer_str = '</body></html>';
+  var new_str = document.getElementById(elem).innerHTML;
+  var old_str = document.body.innerHTML;
+  document.body.innerHTML = header_str + new_str + footer_str;
+  window.print();
+  document.body.innerHTML = old_str;
+  return false;
+}
+
+
   
     // Calculate totals
   let totalWithoutGst = 0;
@@ -25,8 +38,9 @@ window.print()
   const grantTotal = totalWithoutGst + gstTotal;
 
   return (
-    <div>
-      <h2>Invoice</h2>
+    <div >
+<div id="printArea"> 
+      <h2 className="invoice">Invoice</h2>
       <table>
         <thead>
           <tr>
@@ -44,9 +58,9 @@ window.print()
               <td>{item.product}</td>
               <td>{item.category}</td>
               <td>{item.quantity}</td>
-              <td>Rs{item.price.toFixed(2)}</td>
-              <td>Rs{(item.price * item.gst * item.quantity).toFixed(2)}</td>
-              <td>Rs{(item.price * item.quantity).toFixed(2)}</td>
+              <td>Rs {item.price.toFixed(2)}</td>
+              <td>Rs {(item.price * item.gst * item.quantity).toFixed(2)}</td>
+              <td>Rs {(item.price * item.quantity).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
@@ -56,20 +70,24 @@ window.print()
             </tr>
           <tr>
             <td colSpan="5">Total without GST</td>
-            <td>Rs{totalWithoutGst.toFixed(2)}</td>
+            <td>Rs {totalWithoutGst.toFixed(2)}</td>
           </tr>
           <tr>
             <td colSpan="5">Total GST</td>
-            <td>Rs{gstTotal.toFixed(2)}</td>
+            <td>Rs {gstTotal.toFixed(2)}</td>
           </tr>
           <tr>
             <td colSpan="5">Grant Total</td>
-            <td>Rs{grantTotal.toFixed(2)}</td>
+            <td>Rs {grantTotal.toFixed(2)}</td>
           </tr>
         </tfoot>
       </table>
+      </div>
       <br />
-      <button className="btn" onClick={() =>handelPrint()}> Print </button>
+
+      <button onClick={ () => printdiv("printArea")} >PRINT</button>
+
+
     </div>
   );
 };
