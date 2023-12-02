@@ -3,7 +3,7 @@
 This is a basic invoice generator built with React.js and Supabase, featuring the ability to add new product categories with GST%, add new products, and generate bills by selecting products.
 
 ## Live Link
-You can find the live link for this project [here](#).
+You can find the live link for this project [Invoice-gst-generator](https://invoice-gst-generator.netlify.app).
 
 ## Local Setup
 
