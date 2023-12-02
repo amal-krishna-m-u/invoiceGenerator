@@ -1,88 +1,87 @@
-/* Set default color variables for light mode */
-:root {
-    --background-color: #f3f3f3; /* Light gray background */
-    --text-color: #333333; /* Dark text color */
-    --accent-color: #ff9900; /* orange color */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
   }
   
-  /* Dark mode styles */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background-color: #1a1a1a; /* Dark background color */
-      --text-color: #ffffff; /* Light text color */
-      --accent-color: #ff9900; /* orange color */
-    }
-  }
-  
-  /* Global styles */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-  
-  /* Header styles */
-  .header {
-    background-color: #2f3d4a; /* Slightly lighter background color */
-    color: var(--text-color);
-    padding: 10px 0;
-  }
-  
-  .header h1 {
-    font-size: 1.5em;
-  }
-  
-  /* Navigation styles */
-  .navbar {
-    background-color: #2f3d4a;
-    color: var(--text-color);
-    padding: 10px 0;
-  }
-  
-  .navbar a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  /* Product card styles */
-  .product-card {
-    border: 1px solid #dddddd;
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
     text-align: center;
-    background-color: #ffffff; /* White background for product cards */
+    color: #007bff;
   }
   
-  .product-card img {
-    max-width: 100%;
-    height: auto;
+  .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
-  .product-title {
-    font-size: 1.2em;
+  .dashboard-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bill-section {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 10px;
   }
   
-  .product-price {
-    color: var(--accent-color); /* orange color for prices */
-    font-size: 1.2em;
-    font-weight: bold;
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
   }
   
-  /* Footer styles */
-  .footer {
-    background-color: #2f3d4a;
-    color: var(--text-color);
-    padding: 10px 0;
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .totals-section {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .print-section {
+    margin-top: 20px;
     text-align: center;
   }
   
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .product-card {
-      width: 100%;
-    }
+  input, select, button {
+    margin-bottom: 15px;  /* Increased space between input elements */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
   }
   
