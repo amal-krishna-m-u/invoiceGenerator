@@ -14,7 +14,9 @@ This repository is part of an assessment. The invoice generator allows users to 
 - Add and manage product categories with GST%
 - Add new products to the inventory
 - Generate bills by selecting products
+- Even if user enters same products 2 times it will be merged and a single row will be shown 
 - Responsive design for desktop and mobile use
+- Delete Categories if needed 
 
 ## Local Setup
 
@@ -49,6 +51,21 @@ npm run dev
 Visit [http://localhost](http://localhost:5174/) in your browser to view the application.
 
 ## Video/Images
+
+<img width="1440" alt="Screenshot 2023-12-03 at 3 08 34 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/b3075f02-7450-4695-9038-d1b5b45540a1">
+<img width="1440" alt="Screenshot 2023-12-03 at 3 08 44 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/be0e770f-e1c7-4d4d-80cc-b6e15e52dcb5">
+<img width="1440" alt="Screenshot 2023-12-03 at 3 09 12 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/ce728629-8c94-4ff8-a4d0-71ed24948fcb">
+<img width="1440" alt="Screenshot 2023-12-03 at 3 09 40 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/2352535f-0fc1-4cea-b209-f64c5f7e6de4">
+<img width="1440" alt="Screenshot 2023-12-03 at 3 09 59 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/274cdb41-3fd4-4b62-abd7-059fece44151">
+<img width="1440" alt="Screenshot 2023-12-03 at 3 10 07 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/d84d0854-0ab4-404f-9368-71ee05341e4e">
+<img width="1440" alt="Screenshot 2023-12-03 at 3 10 22 PM" src="https://github.com/amal-krishna-m-u/invoiceGenerator/assets/83550433/5edeed09-79c4-465c-b8eb-4e6051e74bdb">
+
+
+
+
+
+
+
 
 
 ## Note
