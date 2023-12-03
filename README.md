@@ -1,6 +1,3 @@
-Certainly! Below is the updated version of your README file with the adjustments and additional sections you mentioned:
-
-```markdown
 # Invoice Generator
 
 This is a basic invoice generator built with React.js and Vite, featuring the ability to add new product categories with GST%, add new products, and generate bills by selecting products.
@@ -80,4 +77,3 @@ If you have any questions or need further assistance, you can reach out to me at
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [Vite Documentation](https://vitejs.dev/guide/)
 - [Netlify Documentation](https://docs.netlify.com/)
-```
