@@ -1,6 +1,7 @@
 // GenerateBill.jsx
 import React, { useState } from "react";
 
+
 export default function GenerateBill({
   products,
   billItems,
@@ -68,7 +69,11 @@ export default function GenerateBill({
         onChange={(e) => setQuantity(e.target.value)}
       />
       <br />
-      <button onClick={handleGenerateBill}>Generate Bill</button>
+      <button onClick={handleGenerateBill}>Add Bill Item</button>
+      <button onClick={()=> window.location.reload()}>New bill</button>
+
+
+      
     </div>
   );
 }

@@ -1,4 +1,4 @@
-// DeleteItem.jsx
+
 import React, { useState, useEffect } from "react";
 
 const DeleteItem = ({ items, categories, onDeleteItem, onDeleteCategory }) => {
@@ -12,8 +12,6 @@ const DeleteItem = ({ items, categories, onDeleteItem, onDeleteCategory }) => {
   }, [items, categories]);
 
   const handleSearch = () => {
-    // Implement your logic to search for items or categories based on the searchTerm
-    // For simplicity, this example searches for items with a name or category that contains the searchTerm
     const filteredItems = items.filter(
       (item) =>
         item.product.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -72,14 +70,16 @@ const DeleteItem = ({ items, categories, onDeleteItem, onDeleteCategory }) => {
 
   return (
     <div>
-      <h2>Delete Items</h2>
+      <h2>Delete Category</h2>
       <input
         type="text"
-        placeholder="Search by name or category"
+        placeholder="Search category"
         value={searchTerm}
         onChange={handleInputChange}
       />
+      <br />
       <button onClick={handleSearch}>Search</button>
+
 
       <ul>
         {searchResults.map((result, index) => (
