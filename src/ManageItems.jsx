@@ -12,6 +12,8 @@ const ManageItems = ({ items }) => {
     document.body.innerHTML = header_str + new_str + footer_str;
     window.print();
     document.body.innerHTML = old_str;
+
+    window.location.reload();
     return false;
   }
 
