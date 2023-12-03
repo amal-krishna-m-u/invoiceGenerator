@@ -1,6 +1,6 @@
 # Invoice Generator
 
-This is a basic invoice generator built with React.js and Vite, featuring the ability to add new product categories with GST%, add new products, and generate bills by selecting products.
+This is a basic invoice generator built with React.js and Vite, featuring the ability to add new product categories with GST%, add new products, and generate bills by selecting products.This project uses local sotrage to store and retrive product categories and products.So no need to install or use any db services.If the data increases it is recommended to use a db service like [Supabse](https://supabase.com/).
 
 ## Live Link
 You can find the live link for this project on [Netlify](https://invoice-gst-generator.netlify.app).
@@ -36,15 +36,7 @@ This repository is part of an assessment. The invoice generator allows users to 
    npm install
    ```
 
-### Configuration
 
-1. **Environment Variables:**
-   - Create a `.env` file in the root directory of the project.
-   - Add the following environment variables:
-     ```env
-     REACT_APP_SUPABASE_URL=your_supabase_url
-     REACT_APP_SUPABASE_KEY=your_supabase_api_key
-     ```
 
 ### Running the Application
 
@@ -54,11 +46,10 @@ Once you have completed the installation and configuration, you can run the appl
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+Visit [http://localhost](http://localhost:5174/) in your browser to view the application.
 
 ## Video/Images
 
-Add video/images of the website to showcase its features.
 
 ## Note
 
@@ -66,7 +57,7 @@ Even though the application works in most browsers and mobile phones and is resp
 
 ## Feedback and Issues
 
-Feel free to provide feedback or report any issues you encounter. Contributions are also welcome!
+Feel free to provide feedback or report any issues you encounter. 
 
 ## How to Reach Out
 
