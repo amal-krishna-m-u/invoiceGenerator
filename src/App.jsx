@@ -1,8 +1,8 @@
 // App.jsx
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Home from "./Home";
 import AddCategory from "./AddCategory";
 import AddProduct from "./AddProduct";
@@ -13,10 +13,23 @@ import "./style.css";
 
 // Navigation component
 const Navigation = () => {
+  // State to track whether the navbar is collapsed or not
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  // Toggle navbar collapse state
+  const toggleNavbar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  // Collapse navbar when a link is clicked
+  const handleLinkClick = () => {
+    setIsCollapsed(true);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary rounded">
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand" onClick={handleLinkClick}>
           Home
         </Link>
         <button
@@ -25,30 +38,50 @@ const Navigation = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={!isCollapsed ? "true" : "false"}
           aria-label="Toggle navigation"
+          onClick={toggleNavbar}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div
+          className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/add-category" className="nav-link">
+              <Link
+                to="/add-category"
+                className="nav-link"
+                onClick={handleLinkClick}
+              >
                 Add Category
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/add-product" className="nav-link">
+              <Link
+                to="/add-product"
+                className="nav-link"
+                onClick={handleLinkClick}
+              >
                 Add Product
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/generate-bill" className="nav-link">
+              <Link
+                to="/generate-bill"
+                className="nav-link"
+                onClick={handleLinkClick}
+              >
                 Generate Bill
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/delete-items" className="nav-link">
+              <Link
+                to="/delete-items"
+                className="nav-link"
+                onClick={handleLinkClick}
+              >
                 Delete Items
               </Link>
             </li>
@@ -68,7 +101,8 @@ const App = () => {
 
   // useEffect to load categories and products from local storage on component mount
   useEffect(() => {
-    const storedCategories = JSON.parse(localStorage.getItem("categories")) || [];
+    const storedCategories =
+      JSON.parse(localStorage.getItem("categories")) || [];
     const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
 
     setCategories(storedCategories);
@@ -94,12 +128,18 @@ const App = () => {
 
   // Function to handle adding a new category
   const handleAddCategory = (newCategory) => {
-    saveCategoriesToLocalStorage([...categories, { ...newCategory, gst: parseFloat(newCategory.gst) / 100 }]);
+    saveCategoriesToLocalStorage([
+      ...categories,
+      { ...newCategory, gst: parseFloat(newCategory.gst) / 100 },
+    ]);
   };
 
   // Function to handle adding a new product
   const handleAddProduct = (newProduct) => {
-    saveProductsToLocalStorage([...products, { ...newProduct, price: parseFloat(newProduct.price) }]);
+    saveProductsToLocalStorage([
+      ...products,
+      { ...newProduct, price: parseFloat(newProduct.price) },
+    ]);
   };
 
   // Function to handle generating a new bill item
@@ -110,14 +150,14 @@ const App = () => {
   // Function to handle deleting a bill item
   const handleDeleteItem = (itemToDelete) => {
     setBillItems((prevItems) =>
-      prevItems.filter((item) => item !== itemToDelete)
+      prevItems.filter((item) => item !== itemToDelete),
     );
   };
 
   // Function to handle deleting a category
   const handleDeleteCategory = (categoryToDelete) => {
     setCategories((prevCategories) =>
-      prevCategories.filter((category) => category !== categoryToDelete)
+      prevCategories.filter((category) => category !== categoryToDelete),
     );
   };
 
@@ -132,15 +172,35 @@ const App = () => {
         {/* Define routes using react-router-dom */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/add-category" element={<AddCategory onAddCategory={handleAddCategory} />} />
-          <Route path="/add-product" element={<AddProduct categories={categories} onAddProduct={handleAddProduct} />} />
+          <Route
+            path="/add-category"
+            element={<AddCategory onAddCategory={handleAddCategory} />}
+          />
+          <Route
+            path="/add-product"
+            element={
+              <AddProduct
+                categories={categories}
+                onAddProduct={handleAddProduct}
+              />
+            }
+          />
           <Route
             path="/generate-bill"
             element={
               <>
                 {/* Render the GenerateBill component with ManageItems */}
-                <GenerateBill products={products} billItems={billItems} setBillItems={setBillItems} categories={categories} onGenerateBill={handleGenerateBill} />
-                <ManageItems items={billItems} onDeleteItem={handleDeleteItem} />
+                <GenerateBill
+                  products={products}
+                  billItems={billItems}
+                  setBillItems={setBillItems}
+                  categories={categories}
+                  onGenerateBill={handleGenerateBill}
+                />
+                <ManageItems
+                  items={billItems}
+                  onDeleteItem={handleDeleteItem}
+                />
               </>
             }
           />
@@ -148,7 +208,14 @@ const App = () => {
           {/* Render the DeleteItem component with bill items and categories */}
           <Route
             path="/delete-items"
-            element={<DeleteItem items={billItems} categories={categories} onDeleteItem={handleDeleteItem} onDeleteCategory={handleDeleteCategory} />}
+            element={
+              <DeleteItem
+                items={billItems}
+                categories={categories}
+                onDeleteItem={handleDeleteItem}
+                onDeleteCategory={handleDeleteCategory}
+              />
+            }
           />
         </Routes>
       </div>
